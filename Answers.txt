@@ -1,0 +1,71 @@
+﻿Xuan Ha Nghiem 
+3/7/2017
+1. Compile the code.
+   1. What Maven command did you use?
+mvn -B archetype:generate \
+      -DarchetypeGroupId=org.apache.maven.archetypes \
+      -DgroupId=com.mycompany.app \
+      -DartifactId=my-app
+This creates the default/simplest layout for the Maven projects. It creates a directory named my-app, which contains pom.xml and the folder src which sets up the default java classes and programs. The pom file was copied and pasted over to sirtommy directory.
+
+
+mvn compile or mvn clean compile -- in the directory of the maven project compiles the code and creates the target directory leading to the class file.
+
+
+   1. Where does Maven put the .class files?
+The class files were in the target/classes/edu/worcester/cs/kwurst/cs242 directory 
+
+
+   1. What other directories were created? What is in them?
+The generated-sources/annotations directories were created but annotation was empty. The maven-status/maven-compiler-plugin/compile/default-compile directories were created which contained the createdFiles.lst. 
+
+
+1. Run the tests.
+   1. What Maven command did you use?
+mvn test
+
+
+   1. Where does Maven put the .class files?
+The class file was in the target/test-classes directory. From previous, it is also in the classes directory.
+   1. What other directories were created? What is in them?
+The generated-test-sources/test-annotations directories was created which was empty. The maven-status/maven-compiler-plugin/compile/default contained the inputFiles.lst. The maven-status/maven-compiler-plugin/testCompile/default-testCompile contained the createdFiles.lst file. The surefire directory was created which was empty. The surefire-reports directory was created which contained the edu.worcester.cs.kwurst.cs242.CardTest and the TEST-edu.worcester.cs.kwurst.cs242.CardTest. 
+1. Make a  jar file. 
+   1. What Maven command did you use?
+mvn package
+
+
+   1. Where does Maven put the .jar file?
+The sirtommy-0.0.1-SNAPSHOT jar file is in the target directory.
+   1. What other directories were created? What is in them?
+The maven-archiver directory was created which contained the pom PROPERTIES file. The maven-status/maven-compiler-plugin/testCompile/default-testCompile contained the inputFiles.lst.
+
+
+1. Clean up the project.
+   1. What Maven command did you use?
+mvn clean
+   1. What changes were made to the directory structure?
+The target directory was deleted.
+1. Make a web site for the project.
+   1. What Maven command did you use?
+mvn site
+   1. Where does Maven put the site directory?
+The site directory is in the target directory.
+   1. Open the web site in your browser. What file did you use?
+The project-info led to the main web page for project information, its document and descriptions, but other web page links would lead to the same but different sections of the web page as well.
+   1. What other directories were created? What is in them?
+The css and images directories were created. Css contains .css files, which includes maven-base, maven-theme, print, and site. Images contains the image icon files, logo directories and its logo files. The site directory contained the internet links to the web site that had been created. It contained the following links: dependencies, dependency-convergence, dependency-info, index, plugin-management, plugins, project -info, and project-summary.
+   1. Was the code compiled for this target?
+Yes, it was compiled.
+1. Make a jar file again.
+
+
+1. Try to run the code by typing: java -jar target/SirTommy-1.0-SNAPSHOT.jar
+   1. This fails because the jar file doesn’t know which class holds the main method.
+
+
+   1. A MANIFEST.MF file in the jar file will tell it which class has main. (And other things…)
+  
+
+
+
+1. Modify the pom.xml file to create an executable jar file by adding the following. Then execute your jar again.
